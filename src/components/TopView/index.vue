@@ -5,13 +5,13 @@
         <el-card shadow="hover"> <total-sales/> </el-card>
       </el-col>
       <el-col :span="6">
-        <el-card shadow="hover"> <total-users /> </el-card>
+        <el-card shadow="hover"> <total-orders /> </el-card>
       </el-col>
       <el-col :span="6">
         <el-card shadow="hover"> <today-users /> </el-card>
       </el-col>
       <el-col :span="6">
-        <el-card shadow="hover"> <today-orders /> </el-card>
+        <el-card shadow="hover"> <total-users /> </el-card>
       </el-col>
     </el-row>
   </div>
@@ -20,13 +20,13 @@
 <script>
 import TotalSales from '../TotalSales'
 import TotalUsers from '../TotalUsers'
-import TodayOrders from '../TodayOrders'
+import TotalOrders from '../TotalOrders'
 import TodayUsers from '../TodayUsers'
 export default {
   components: {
     TotalSales,
     TotalUsers,
-    TodayOrders,
+    TotalOrders,
     TodayUsers
   },
 }

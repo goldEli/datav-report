@@ -15,5 +15,6 @@ module.exports = {
     'eol-last': 'off',
     'no-multiple-empty-lines': ['error', { max: 2 }],
     'no-trailing-spaces': 'off',
+    'space-before-function-paren': 'off',
   },
 }
