@@ -23,7 +23,7 @@ export default {
 
 <style lang="scss" scoped>
 .title {
-  font-size: 12px;
+  font-size: 16px;
   color: #999;
 }
 .value {
