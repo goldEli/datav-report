@@ -2,9 +2,13 @@
   <div class="common-card">
     <div class="title">{{ title }}</div>
     <div class="value">{{ value }}</div>
-    <div class="chart"></div>
+    <div class="chart">
+      <slot></slot>
+    </div>
     <div class="line" />
-    <div class="tatal"></div>
+    <div class="tatal">
+      <slot name="footer"></slot>
+    </div>
   </div>
 </template>
 
