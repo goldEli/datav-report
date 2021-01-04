@@ -1,13 +1,22 @@
 <template>
   <common-card title="Total sales" value="$3000">
     <template>
-      <div class="compare"></div>
+      <div class="compare-wrapper">
+        <div class="compare">
+          <span>Day-on-day:</span>
+          <span class="emphasis">7%</span>
+          <div class="increase-icon"></div>
+        </div>
+        <div class="compare">
+          <span>Month-on-Month:</span>
+          <span class="emphasis">38.75%</span>
+          <div class="decrease-icon"></div>
+        </div>
+      </div>
     </template>
     <template v-slot:footer>
-      <div>
-        <span>Yesterday's sales: </span>
-        <span class="money">$3200</span>
-      </div>
+      <span>Yesterday's sales: </span>
+      <span class="emphasis">$3200</span>
     </template>
   </common-card>
 </template>
@@ -18,16 +27,18 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.compare {
+.compare-wrapper {
   height: 100%;
-  background-color: red;
-}
-span {
-  font-size: 12px;
-}
-.money {
-  margin-left: 5px;
-  color: #333;
-  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .compare {
+    font-size: 12px;
+    margin-top: 3px;
+    color: #666;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 </style>

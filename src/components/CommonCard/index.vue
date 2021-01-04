@@ -44,3 +44,27 @@ export default {
   color: #666;
 }
 </style>
+
+<style>
+.emphasis {
+  margin-left: 5px;
+  color: #333;
+  font-weight: 700;
+}
+
+.increase-icon,
+.decrease-icon {
+  width: 0;
+  height: 0;
+  border-width: 3px;
+  border-style: solid;
+}
+.increase-icon {
+  border-color: transparent transparent red transparent;
+  margin: 0 0 3px 5px;
+}
+.decrease-icon {
+  border-color: green transparent transparent transparent;
+  margin: 3px 0 0 5px;
+}
+</style>
