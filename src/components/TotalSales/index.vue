@@ -1,7 +1,7 @@
 <template>
   <common-card title="Total sales" value="$3000">
     <template>
-      <div>123</div>
+      <div class="compare"></div>
     </template>
     <template v-slot:footer>
       <div>
@@ -18,6 +18,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.compare {
+  height: 100%;
+  background-color: red;
+}
 span {
   font-size: 12px;
 }
