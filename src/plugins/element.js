@@ -9,6 +9,9 @@ import {
   RadioGroup,
   RadioButton,
   DatePicker,
+  Table,
+  TableColumn,
+  Pagination,
 } from 'element-ui'
 import lang from 'element-ui/lib/locale/lang/en'
 import locale from 'element-ui/lib/locale'
@@ -24,3 +27,6 @@ Vue.use(Radio)
 Vue.use(RadioGroup)
 Vue.use(RadioButton)
 Vue.use(DatePicker)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Pagination)
