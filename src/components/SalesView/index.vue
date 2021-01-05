@@ -1,15 +1,10 @@
 <template>
-  <div>
-    Sales
-  </div>
+  <div>sales view</div>
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {}
 </script>
 
 <style lang="sass" scoped>
-
 </style>
