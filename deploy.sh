@@ -1,4 +1,6 @@
-git checkout release &
-git rebase main &
-git push &
-git checkout main
+git checkout release &&
+git pull --rebase &&
+git rebase main &&
+git push --force &&
+git checkout main &&
+echo "open https://goldeli.github.io/datav-report/"
