@@ -30,9 +30,9 @@ export default {
   data() {
     return {
       title: {
-        text: '慕课外卖销售数据大盘',
+        text: '销售数据大盘',
         subtext: '销售趋势统计',
-        sublink: 'https://www.imooc.com',
+        sublink: 'https://www.baidu.com',
         left: 'center',
       },
       chartSettings: {
