@@ -25,6 +25,7 @@ const convertData = function (data, geo) {
 }
 
 export default {
+  inject: ["getReportData"],
   data() {
     this.chartTooltip = { show: true }
     return {

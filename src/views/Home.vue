@@ -12,8 +12,40 @@ import BottomView from '@/components/BottomView'
 import MapView from '@/components/MapView'
 import SalesView from '@/components/SalesView'
 import TopView from '@/components/TopView'
+import { wordcloud, mapScatter, screenData } from '../api'
 export default {
   name: 'Home',
+  data() {
+    return {
+      reportData: null,
+      wordCloud: null,
+      mapData: null,
+    }
+  },
+  provide() {
+    return {
+      getReportData: this.getReportData,
+      getwhrdCloud: this.getwhrdCloud,
+      getMapData: this.getMapData,
+    }
+  },
+  methods: {
+      getReportData: () => this.reportData,
+      getwhrdCloud: () => this.wordcloud,
+      getMapData: () => this.getMapData,
+  },
+  mounted() {
+    wordcloud().then((data) => {
+      this.wordcloud = data
+    })
+    mapScatter().then((data) => {
+      this.mapData = data
+    })
+    screenData().then((data) => {
+      this.reportData = data
+    })
+  },
+
   components: {
     BottomView,
     MapView,
