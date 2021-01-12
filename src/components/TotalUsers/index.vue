@@ -26,7 +26,6 @@ export default {
   mixins: [commonCardMixin, commonDataMixin],
   methods: {
     getOptions() {
-      console.log(123, this.userLastMonth, this.userTodayNumber, this.userLastMonth)
       return {
         xAxis: {
           type: 'value',

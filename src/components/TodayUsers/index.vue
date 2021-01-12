@@ -1,27 +1,27 @@
 <template>
-  <common-card title="Today users" value="200">
+  <common-card title="Today users" :value="orderUser">
     <template>
       <v-chart :options="getOptions()" />
     </template>
     <template v-slot:footer>
-      <span>Return rate: </span>
-      <span class="emphasis">2%</span>
+      <span>Return rate:</span>
+      <span class="emphasis">{{returnRate}}</span>
     </template>
   </common-card>
 </template>
 <script>
 import commonCardMixin from '../../mixins/commonCardMixin'
+import commonDataMixin from '@/mixins/commonDataMixin'
 export default {
-  mixins: [commonCardMixin],
+  mixins: [commonCardMixin, commonDataMixin],
   methods: {
     getOptions() {
-      const data = [300, 123, 345, 423, 432, 333, 222, 433, 345, 435, 399, 456]
       return {
         xAxis: {
           type: 'category',
           show: false,
           // boundaryGap: false, // remove gap
-          data: data.map((_, idx) => `${idx}:00`),
+          data: this.orderUserTrendAxis,
         },
         yAxis: {
           show: false,
@@ -32,7 +32,7 @@ export default {
           {
             color: ['#3398DB'],
             type: 'bar',
-            data,
+            data: this.orderUserTrend,
             barWidth: '60%',
           },
         ],
