@@ -1,29 +1,30 @@
 <template>
-  <common-card title="Total sales" value="$3000">
+  <common-card title="Total sales" :value="salesToday">
     <template>
       <div class="compare-wrapper">
         <div class="compare">
           <span>Day-on-day:</span>
-          <span class="emphasis">7%</span>
+          <span class="emphasis">{{salesGrowthLastDay}}</span>
           <div class="increase-icon"></div>
         </div>
         <div class="compare">
           <span>Month-on-Month:</span>
-          <span class="emphasis">38.75%</span>
+          <span class="emphasis">{{salesGrowthLastMonth}}</span>
           <div class="decrease-icon"></div>
         </div>
       </div>
     </template>
     <template v-slot:footer>
       <span>Yesterday's sales: </span>
-      <span class="emphasis">$3200</span>
+      <span class="emphasis">{{salesLastDay}}</span>
     </template>
   </common-card>
 </template>
 <script>
 import commonCardMixin from '../../mixins/commonCardMixin'
+import commonDataMixin from '@/mixins/commonDataMixin'
 export default {
-  mixins: [commonCardMixin],
+  mixins: [commonCardMixin, commonDataMixin],
 }
 </script>
 <style lang="scss" scoped>

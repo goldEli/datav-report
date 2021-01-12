@@ -10,7 +10,8 @@
 
 <script>
 /* eslint-disable */
-import { data, geo, styleJson } from './data'
+import commonDataMixin from '../../mixins/commonDataMixin.js'
+import { styleJson } from './data'
 const convertData = function (data, geo) {
   const res = []
   data.forEach((item) => {
@@ -25,7 +26,7 @@ const convertData = function (data, geo) {
 }
 
 export default {
-  inject: ["getReportData"],
+  mixins: [commonDataMixin],
   data() {
     this.chartTooltip = { show: true }
     return {
@@ -41,7 +42,19 @@ export default {
         },
       },
       chartTooltip: {},
-      chartSeries: [
+      chartSeries: [],
+      title: {
+        text: '销售数据大盘',
+        subtext: '销售趋势统计',
+        sublink: 'https://www.baidu.com',
+        left: 'center',
+      },
+    }
+  },
+  watch: {
+    mapData() {
+      const { data, geo } = this.mapData
+      this.chartSeries = [
         {
           name: '销售额',
           type: 'scatter',
@@ -103,14 +116,8 @@ export default {
             brushType: 'stroke',
           },
         },
-      ],
-      title: {
-        text: '销售数据大盘',
-        subtext: '销售趋势统计',
-        sublink: 'https://www.baidu.com',
-        left: 'center',
-      },
-    }
+      ]
+    },
   },
 }
 </script>

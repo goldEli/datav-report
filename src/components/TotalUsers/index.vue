@@ -1,5 +1,5 @@
 <template>
-  <common-card title="Total users" value="1,087,503">
+  <common-card title="Total users" :value="userToday">
     <template>
       <v-chart :options="getOptions()" />
     </template>
@@ -7,12 +7,12 @@
       <div class="compare-wrapper">
         <div class="compare">
           <span>Day-on-day:</span>
-          <span class="emphasis">7%</span>
+          <span class="emphasis">{{userGrowthLastDay}}</span>
           <div class="increase-icon"></div>
         </div>
         <div class="compare month">
           <span>Month-on-Month:</span>
-          <span class="emphasis">8.73%</span>
+          <span class="emphasis">{{userGrowthLastMonth}}</span>
           <div class="decrease-icon"></div>
         </div>
       </div>
@@ -21,17 +21,19 @@
 </template>
 <script>
 import commonCardMixin from '../../mixins/commonCardMixin'
+import commonDataMixin from '@/mixins/commonDataMixin'
 export default {
-  mixins: [commonCardMixin],
+  mixins: [commonCardMixin, commonDataMixin],
   methods: {
     getOptions() {
+      console.log(123, this.userLastMonth, this.userTodayNumber, this.userLastMonth)
       return {
         xAxis: {
           type: 'value',
           show: false,
           // boundaryGap: false, // remove gap
           min: 0,
-          max: 450,
+          max: this.userLastMonth + this.userTodayNumber,
         },
         yAxis: {
           type: 'category',
@@ -39,21 +41,23 @@ export default {
         },
         series: [
           {
+            name: '上月平台用户数',
             itemStyle: {
               color: '#45c946',
             },
             stack: '1',
             type: 'bar',
-            data: [200],
+            data: [this.userLastMonth],
             barWidth: '10px',
           },
           {
+            name: '今日平台用户数',
             itemStyle: {
               color: '#eee',
             },
             stack: '1',
             type: 'bar',
-            data: [250],
+            data: [this.userTodayNumber],
             barWidth: '10px',
           },
           {
@@ -62,11 +66,10 @@ export default {
               color: '#45c946',
             },
             stack: '1',
-            data: [200],
+            data: [this.userLastMonth],
             renderItem: (parms, api) => {
               const value = api.value(0)
               const endPoint = api.coord([value, 0])
-
               return {
                 type: 'group',
                 position: endPoint,
