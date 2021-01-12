@@ -28,8 +28,10 @@ export default {
           min: 0,
           max: 600,
         },
+        tooltip: {},
         series: [
           {
+            name: '用户实时交易量',
             color: ['#3398DB'],
             type: 'bar',
             data: this.orderUserTrend,
