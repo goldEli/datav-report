@@ -9,6 +9,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import { data, geo, styleJson } from './data'
 const convertData = function (data, geo) {
   const res = []
