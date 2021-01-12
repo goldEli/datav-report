@@ -25,18 +25,24 @@ export default {
   provide() {
     return {
       getReportData: this.getReportData,
-      getwhrdCloud: this.getwhrdCloud,
+      getWordCloud: this.getWordCloud,
       getMapData: this.getMapData,
     }
   },
   methods: {
-      getReportData: () => this.reportData,
-      getwhrdCloud: () => this.wordcloud,
-      getMapData: () => this.getMapData,
+    getReportData() {
+      return this.reportData
+    },
+    getWordCloud() {
+      return this.wordCloud
+    },
+    getMapData() {
+      return this.getMapData
+    },
   },
   mounted() {
     wordcloud().then((data) => {
-      this.wordcloud = data
+      this.wordCloud = data
     })
     mapScatter().then((data) => {
       this.mapData = data
