@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {data, geo} from "./data"
+import { data, geo } from './data'
 const convertData = function (data, geo) {
   const res = []
   data.forEach((item) => {
@@ -22,7 +22,6 @@ const convertData = function (data, geo) {
   })
   return res
 }
-
 
 /* eslint-disable */
 export default {
