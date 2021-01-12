@@ -11,7 +11,7 @@ export default {
         rows: getRows(),
       },
     }
-  },
+  }
 }
 
 function getRows() {
